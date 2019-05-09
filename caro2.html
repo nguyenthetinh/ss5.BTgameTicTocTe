@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>GAME TIC TOC TE</h3>
+<p id="caro"></p>
+<input type="button" value="Nguoi choi 1" onclick="ngchoi1()"/>
+<input type="button" value="Nguoi choi 2" onclick="ngchoi2()"/><br><br>
+<p id="rs"></p>
+<script>
+    let b=document.getElementById("caro");
+    let mang=[];
+    let data="";
+    for (let i=0;i<10;i++){
+        mang[i]=[".",".",".",".",".",".",".",".",".","."];
+        data+="<br>";
+        for (let j=0 ; j<10 ;j++){
+            data += mang[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+        }
+        b.innerHTML=data;
+    }
+    function ngchoi1() {
+        let toado1=prompt("Người chơi 1");
+        let toado2=prompt("Người chơi 1");
+        mang[toado1][toado2]="X";
+        data="";
+        for (let i=0;i<10;i++){
+            data +="<br/>";
+            for (let j=0;j<10;j++){
+                data +=mang[i][j]+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            }
+        }
+        b.innerHTML=data;
+        kiemTraNguoiThang()
+    }
+    function ngchoi2() {
+        let toado3=prompt("nguoi choi 2");
+        let toado4=prompt("nguoi choi 2");
+        mang[toado3][toado4]="0"
+        data=""
+        for (i=0;i<10;i++){
+            data+="</br>"
+            for (j=0;j<10;j++){
+                data+=mang[i][j]+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+            }
+        }
+        b.innerHTML=data;
+        kiemTraNguoiThang()
+    }
+    function kiemTraNguoiThang() {
+        for (let i=0;i<mang.length;i++){
+            for (let j=0;j<10;j++) {
+                if ( mang[i][j] == "X" && mang[i][j + 1] == "X" && mang[i][j + 2] == "X") {
+                    document.getElementById("rs").innerHTML="Nguoi Choi 1 da thang"
+                }
+                if (mang[i][j] == "X" && mang[i+1][j] == "X" && mang[i+2][j] == "X"){
+                    document.getElementById("rs").innerHTML="Nguoi Choi 1 da thang"
+                }
+                if (mang[i][j] == "X" && mang[i+1][j+1] == "X" && mang[i+2][j+2] == "X"){
+                    document.getElementById("rs").innerHTML="Nguoi Choi 1 da thang"
+                }
+                if (mang[i][j] == "X" && mang[i-1][j+1] == "X" && mang[i-2][j+2] == "X"){
+                    document.getElementById("rs").innerHTML="Nguoi Choi 1 da thang"
+                }
+                if (mang[i][j] == "X" && mang[i+1][j-1] == "X" && mang[i+2][j-2] == "X"){
+                    document.getElementById("rs").innerHTML="Nguoi Choi 1 da thang"
+                }
+                if ( mang[i][j] == "0" && mang[i][j + 1] == "0" && mang[i][j + 2] == "0") {
+                    document.getElementById("rs").innerHTML="Nguoi Choi 2 da thang"
+                }
+                if (mang[i][j] == "0" && mang[i+1][j] == "0" && mang[i+2][j] == "0"){
+                    document.getElementById("rs").innerHTML="Nguoi Choi 2 da thang"
+                }
+                if (mang[i][j] == "0" && mang[i+1][j+1] == "0" && mang[i+2][j+2] == "0"){
+                    document.getElementById("rs").innerHTML="Nguoi Choi 2 da thang"
+                }
+                if (mang[i][j] == "0" && mang[i-1][j+1] == "0" && mang[i-2][j+2] == "0"){
+                    document.getElementById("rs").innerHTML="Nguoi Choi 2 da thang"
+                }
+                if (mang[i][j] == "0" && mang[i+1][j-1] == "0" && mang[i+2][j-2] == "0"){
+                    document.getElementById("rs").innerHTML="Nguoi Choi 2 da thang"
+                }
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
